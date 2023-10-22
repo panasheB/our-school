@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-
+import UserService from 'services/UserService';
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
@@ -45,10 +45,12 @@ const ProfileTab = ({ handleLogout }) => {
         </ListItemIcon>
         <ListItemText primary="Billing" />
       </ListItemButton>
-      <ListItemButton selected={selectedIndex === 2} onClick={handleLogout}>
+      <ListItemButton selected={selectedIndex === 2} onClick={()=>{UserService.doLogout()}}>
         <ListItemIcon>
           <LogoutOutlined />
         </ListItemIcon>
+
+
         <ListItemText primary="Logout" />
       </ListItemButton>
     </List>
